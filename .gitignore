@@ -1,3 +1,7 @@
+.vscode
+Sima_BackEnd/bin
+Sima_BackEnd/obj
+
 # Prerequisites
 *.d
 
