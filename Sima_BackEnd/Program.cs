@@ -71,14 +71,23 @@ namespace Simulator.Backend
             }
         }
 
+        private static List<string> ForTesting = new List<string>() 
+        {"NET _power_V+ 5",
+        "NET _power_GND 0",
+        "NET _power_V- -5",
+        "RES R1 _power_V+ _signal_0.A19 res=100",
+        "RES R2 _power_GND _signal_0.A19 res=150",
+        "START 1" };
         static void Main(string[] args)
         {
             string line = "";
             string netlist = "";
             double simSpeed = 0;
+            int testid = 0;
             while (true)
             {
-                line = Console.ReadLine();
+                line = ForTesting[testid++]; 
+                // line = Console.ReadLine();
                 if (line.Contains("START"))
                 {
                     simSpeed = Convert.ToDouble(line.Substring(6));

@@ -335,6 +335,7 @@ namespace Simulator.Backend
         }
 
         //Run a solve routine, returning whether or not successful
+        //[0]
         public bool Solve(double tol = 1e-8, int maxIter = 200, bool attemptRamp = true)
         {
             int n = VariableValues.Count;
@@ -345,7 +346,8 @@ namespace Simulator.Backend
             double[][] matrix = new double[n][];
             int i;
             for (i = 0; i < n; i++) matrix[i] = new double[n + 1];
-
+            
+            // [1]
             for (i = 0; i < maxIter; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -390,6 +392,7 @@ namespace Simulator.Backend
             //If conventional Newton's method solution to find the operating point fails
             //Fixed nets are ramped up from zero volts to full in 10% steps in an attempt to find the operating point
             //This works to prevent convergence failures in unstable circuits such as oscillators
+            // [2]
             if ((i==maxIter) && (worstTol > 1))
             {
                 if(attemptRamp)
