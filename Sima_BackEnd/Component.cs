@@ -167,6 +167,12 @@ namespace Simulator.Backend
         {
             return 2;
         }
+
+        public override void SetParameters(ParameterSet paramSet) {
+            Resistance = paramSet.getDouble("res", Resistance);
+            //std::cerr << "res of " << ComponentID << " is " << resistance << std::endl;
+        }
+
         // f0: (V1 - V2) / R - I
         public override double DCFunction(DCSolver solver, int f)
         {

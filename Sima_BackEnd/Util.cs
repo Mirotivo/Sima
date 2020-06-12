@@ -13,7 +13,7 @@ namespace Simulator.Backend
                 if (index < 0 && index >= _front.Count)
                     throw new IndexOutOfRangeException("Index out of range");
 
-                return _front[index];
+                return _back[index];
             }
 
             set

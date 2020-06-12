@@ -259,7 +259,7 @@ namespace Simulator.Backend
             //Get current tick number
             public int GetCurrentTick()
             {
-                return 0;
+                return currentTick;
             }
 
             //Get time that a given tick occurred

@@ -34,14 +34,11 @@ namespace Simulator.Backend
         }
         public double getDouble(string key, double defaultValue = 0)
         {
-            int a = paramSet.Values.ToList().IndexOf(key.ToLower());
-            if (a != paramSet.Count)
-            {
-                return Convert.ToDouble(a);
+            if (paramSet.ContainsKey(key.ToLower())) {
+                return Convert.ToDouble(paramSet[key.ToLower()]);
             }
-            else
-            {
-                return defaultValue;
+            else {
+                return defaultValue;       
             }
         }
     }
